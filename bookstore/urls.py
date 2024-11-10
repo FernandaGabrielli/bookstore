@@ -21,7 +21,11 @@ from rest_framework.authtoken.views import obtain_auth_token
 
 from bookstore import views
 
+def homepage(request):
+    return HttpResponse("Bem-vindo à API do Bookstore!")  # Mensagem simples para a rota raiz
+
 urlpatterns = [
+    path('', homepage), 
     path("__debug__/", include(debug_toolbar.urls)),
     path('admin/', admin.site.urls),
     re_path("bookstore/(?P<version>(v1|v2))/", include("order.urls")),
