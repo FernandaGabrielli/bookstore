@@ -19,11 +19,12 @@ from django.contrib import admin
 from django.urls import path, re_path, include
 from rest_framework.authtoken.views import obtain_auth_token
 from django.http import HttpResponse
+from django.shortcuts import redirect
 
 from bookstore import views
 
 def homepage(request):
-    return HttpResponse("Bem-vindo à API do Bookstore!")  # Mensagem simples para a rota raiz
+    return redirect('/admin/')  # Redireciona para a página de admin
 
 urlpatterns = [
     path('', homepage), 
